@@ -12,8 +12,8 @@ package cva6_config_pkg;
 
   localparam CVA6ConfigXlen = 64;
 
-  localparam CVA6ConfigRVF = 1;
-  localparam CVA6ConfigRVD = 1;
+  localparam CVA6ConfigRVF = 0;
+  localparam CVA6ConfigRVD = 0;
   localparam CVA6ConfigF16En = 0;
   localparam CVA6ConfigF16AltEn = 0;
   localparam CVA6ConfigF8En = 0;
@@ -32,7 +32,7 @@ package cva6_config_pkg;
   localparam CVA6ConfigRVZcherihybrid = 1;
   localparam CVA6ConfigCheriCapTagWidth = 1;
   localparam CVA6ConfigRVFI_DII = 0;
-  localparam CVA6ConfigDIIIDLEN = 0;
+  localparam CVA6ConfigDIIIDLEN = 1;
 
   localparam CVA6ConfigAxiIdWidth = 4;
   localparam CVA6ConfigAxiAddrWidth = 64;
@@ -141,11 +141,11 @@ package cva6_config_pkg;
       NonIdempotentAddrBase: 1024'({64'b0, 64'b0}),
       NonIdempotentLength: 1024'({64'b0, 64'b0}),
       NrExecuteRegionRules: unsigned'(3),
-      ExecuteRegionAddrBase: 1024'({64'h8000_0000, 64'h1_0000, 64'h0}),
-      ExecuteRegionLength: 1024'({64'h40000000, 64'h10000, 64'h1000}),
+      ExecuteRegionAddrBase: 1024'({64'h8000_0000, 64'h1000_0000, 64'h2000_0000}),
+      ExecuteRegionLength: 1024'({64'h4000_0000, 64'h2_0000, 64'h1000}),
       NrCachedRegionRules: unsigned'(1),
       CachedRegionAddrBase: 1024'({64'h8000_0000}),
-      CachedRegionLength: 1024'({64'h40000000}),
+      CachedRegionLength: 1024'({64'h4000_0000}),
       MaxOutstandingStores: unsigned'(7),
       DebugEn: bit'(1),
       AxiBurstWriteEn: bit'(1),
