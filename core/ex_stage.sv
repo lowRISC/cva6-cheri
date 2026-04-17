@@ -308,10 +308,10 @@ module ex_stage
     rs2_forwarding = rs2_forwarding_i[0];
 
     if (CVA6Cfg.SuperscalarEn) begin
-      if (one_cycle_select[1]) begin
-        one_cycle_data = fu_data_i[1];
-        rs1_forwarding = rs1_forwarding_i[1];
-        rs2_forwarding = rs2_forwarding_i[1];
+      if (one_cycle_select[CVA6Cfg.SuperscalarEn]) begin
+        one_cycle_data = fu_data_i[CVA6Cfg.SuperscalarEn];
+        rs1_forwarding = rs1_forwarding_i[CVA6Cfg.SuperscalarEn];
+        rs2_forwarding = rs2_forwarding_i[CVA6Cfg.SuperscalarEn];
       end
     end
   end
@@ -419,8 +419,8 @@ module ex_stage
   always_comb begin
     mult_data = mult_valid_i[0] ? fu_data_i[0] : '0;
     if (CVA6Cfg.SuperscalarEn) begin
-      if (mult_valid_i[1]) begin
-        mult_data = fu_data_i[1];
+      if (mult_valid_i[CVA6Cfg.SuperscalarEn]) begin
+        mult_data = fu_data_i[CVA6Cfg.SuperscalarEn];
       end
     end
   end
@@ -456,8 +456,8 @@ module ex_stage
       always_comb begin
         fpu_data = fpu_valid_i[0] ? fu_data_i[0] : '0;
         if (CVA6Cfg.SuperscalarEn) begin
-          if (fpu_valid_i[1]) begin
-            fpu_data = fu_data_i[1];
+          if (fpu_valid_i[CVA6Cfg.SuperscalarEn]) begin
+            fpu_data = fu_data_i[CVA6Cfg.SuperscalarEn];
           end
         end
       end
@@ -560,9 +560,9 @@ module ex_stage
     lsu_tinst = tinst_i[0];
 
     if (CVA6Cfg.SuperscalarEn) begin
-      if (lsu_valid_i[1]) begin
-        lsu_data  = fu_data_i[1];
-        lsu_tinst = tinst_i[1];
+      if (lsu_valid_i[CVA6Cfg.SuperscalarEn]) begin
+        lsu_data  = fu_data_i[CVA6Cfg.SuperscalarEn];
+        lsu_tinst = tinst_i[CVA6Cfg.SuperscalarEn];
       end
     end
   end
@@ -654,8 +654,8 @@ module ex_stage
     always_comb begin
       cvxif_data = x_valid_i[0] ? fu_data_i[0] : '0;
       if (CVA6Cfg.SuperscalarEn) begin
-        if (x_valid_i[1]) begin
-          cvxif_data = fu_data_i[1];
+        if (x_valid_i[CVA6Cfg.SuperscalarEn]) begin
+          cvxif_data = fu_data_i[CVA6Cfg.SuperscalarEn];
         end
       end
     end
