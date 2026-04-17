@@ -166,7 +166,7 @@ module id_stage #(
   logic                                               commit_redirect_q;
 
   assign int_mode_decode[0] = int_mode_q;
-  for (genvar i = 1; i <= CVA6Cfg.NrIssuePorts; i++) begin
+  for (genvar i = 1; i < CVA6Cfg.NrIssuePorts; i++) begin
     assign int_mode_decode[i] = int_mode_decode_o[i-1];
   end
 
@@ -472,7 +472,7 @@ module id_stage #(
     if (commit_redirect_q) int_mode_d = int_mode_issue_i;
     else if (mispredict_redirect_i) int_mode_d = int_mode_resolved_branch_i;
     else begin
-      for (int i = 0; i <= CVA6Cfg.NrIssuePorts; i++) begin
+      for (int i = 0; i < CVA6Cfg.NrIssuePorts; i++) begin
         if (fetch_entry_ready_o[i]) begin
           int_mode_d = int_mode_decode_o[i];
         end
