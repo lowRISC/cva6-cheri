@@ -1438,7 +1438,7 @@ module cva6
         .clk_i             (clk_i),
         .rst_ni            (rst_ni),
         // I$
-        .icache_en_i       (icache_en_csr),
+        .icache_en_i       (1'b0),
         .icache_flush_i    (icache_flush_ctrl_cache),
         .icache_miss_o     (icache_miss_cache_perf),
         .icache_areq_i     (icache_areq_ex_cache),
@@ -1446,7 +1446,7 @@ module cva6
         .icache_dreq_i     (icache_dreq_if_cache),
         .icache_dreq_o     (icache_dreq_cache_if),
         // D$
-        .dcache_enable_i   (dcache_en_csr_nbdcache),
+        .dcache_enable_i   (1'b0),
         .dcache_flush_i    (dcache_flush_ctrl_cache),
         .dcache_flush_ack_o(dcache_flush_ack_cache_ctrl),
         // to commit stage
